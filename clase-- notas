@@ -1,0 +1,35 @@
+import java.io.*;
+
+public class clase {
+ 
+public static void main (String [] args){
+    BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
+    BufferedWriter bw = new BufferedWriter ( new OutputStreamWriter (System.out));        
+    try
+    {
+        int estudiantes =Integer.parseInt(br.readLine());
+         double[]clase = new double[estudiantes];
+         double min = 5.0, max = 0.0, prom =0.0;
+         // recibir notas
+         for (int i = 0; i < estudiantes; i++){
+             clase [i]= Double.parseDouble(br.readLine());
+         }
+          for (int i = 0; i < estudiantes;  i++){
+              if (clase [i]< min) {
+                  min = clase [i];
+              }
+              if (clase [i]> max){
+                  max = clase [i];
+              }
+              prom = prom + clase[i];
+              
+              bw.write ( "la nota maxima fue " + max +
+                      ",la nota minima fue " + min +
+                      ", y el promedio fue " + prom );
+              bw.flush();
+          }
+          
+    } 
+    catch (Exception ex) {}
+}
+}
